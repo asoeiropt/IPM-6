@@ -1,6 +1,6 @@
 # **SmartGlycoAI**
 
-*🇬🇧 [English](#english) | 🇵🇹 [Português](#português)*
+*EN [English](#english) | 🇵🇹 [Português](#português)*
 
 ---
 
