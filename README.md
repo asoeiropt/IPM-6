@@ -4,7 +4,7 @@
 
 ---
 
-## <a name="english"></a> 🇬🇧 English
+## <a name="english"></a> English
 
 Initial repository and base structure for the development of the **SmartGlycoAI** application, a cross-platform solution built with the **Flutter** framework.
 
