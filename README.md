@@ -1,77 +1,151 @@
-# **SmartGlycoAI**
+# **SmartGlycoAI** 🧬📱
 
-*EN [English](#english) | 🇵🇹 [Português](#português)*
-
----
-
-## <a name="english"></a> English
-
-Initial repository and base structure for the development of the **SmartGlycoAI** application, a cross-platform solution built with the **Flutter** framework.
-
-### **Description**
-
-This repository contains the initial source code for the SmartGlycoAI application. The project combines Flutter's flexibility for the user interface with the native configurations required for optimized execution on mobile devices, focusing at this early stage on the Android platform.
-
-### **Initial Commit Structure**
-
-Below is the organization of the main files and directories provided in the initial commit of the project:
-
-| Path / File | Description |
-| :--- | :--- |
-| `smart_glyco_ai/` | Root and main directory of the Flutter project. |
-| `analysis_options.yaml` | Configuration file for the Dart linter and static code analysis rules. |
-| `android/` | Directory with the native structure and configurations specific to the Android platform. |
-| `android/app/build.gradle.kts` | App module build configuration file, written in Kotlin Script (KTS). |
-| `android/app/src/main/AndroidManifest.xml` | Main manifest where permissions, components, and base configurations of the Android app are declared. |
-| `android/app/src/main/kotlin/.../MainActivity.kt` | Kotlin source file representing the main Activity and native entry point of the application. |
-| `android/app/src/main/res/` | Directory for Android visual and static resources. |
-
-#### **Native Resources (`android/app/src/main/res/`)**
-The resources directory is organized into subfolders optimized for different screen densities and operating system versions:
-*   **`drawable/` and variations** (`drawable-hdpi`, `drawable-mdpi`, `drawable-xhdpi`, `drawable-xxhdpi`, `drawable-xxxhdpi`, `drawable-v21`):
-    *   Contain the assets for the app's launch screen and transition.
-    *   Included files: `background.png`, `launch_background.xml`, and the loading screen `splash.png`.
-*   **`mipmap/` and variations** (`mipmap-hdpi`, `mipmap-mdpi`, `mipmap-xhdpi`, `mipmap-xxhdpi`, `mipmap-xxxhdpi`):
-    *   Contain the official application icons optimized for all supported screen resolutions.
-    *   Included files: `ic_launcher.png` and `launcher_icon.png`.
-
-### **Development Notes**
-*   **Kotlin Script (KTS):** The Android application build configuration uses Kotlin Script (`build.gradle.kts`), following the latest practices and recommendations of the Android ecosystem.
-*   **Standard Flutter Structure:** The project adopts the standard Flutter architecture for integration with the native platform, ensuring scalability and ease of adding future dependencies.
+*EN [English Version](#english) | PT [Versão em Português](#português)*
 
 ---
 
-## <a name="português"></a> 🇵🇹 Português
+## <a name="english"></a> EN English
 
-Repositório inicial e estrutura base para o desenvolvimento da aplicação **SmartGlycoAI**, uma solução multiplataforma criada com a framework **Flutter**.
+Welcome to the **SmartGlycoAI** repository. This project is a robust, cross-platform mobile application built with the **Flutter** framework. This initial commit establishes the foundational architecture, including strict static analysis rules and highly optimized native integrations for both Android and iOS environments.
 
-### **Descrição**
+### **📖 Table of Contents**
+1. [Tech Stack](#tech-stack)
+2. [Deep Dive: Repository Architecture](#deep-dive-repository-architecture)
+3. [Prerequisites & Setup](#prerequisites--setup)
+4. [Build & Run Instructions](#build--run-instructions)
 
-Este repositório contém o código-fonte inicial da aplicação SmartGlycoAI. O projeto junta a flexibilidade do Flutter para a interface do utilizador com as configurações nativas necessárias para a execução otimizada em dispositivos móveis, focando-se nesta fase inicial na plataforma Android.
+### **🛠 Tech Stack**
+*   **Framework:** Flutter
+*   **Language:** Dart (Frontend/Logic), Kotlin (Android Native), Swift (iOS Native)
+*   **Build System:** Gradle (Kotlin DSL `build.gradle.kts`), Xcode Build System
 
-### **Estrutura do Commit Inicial**
+### **📂 Repository Architecture**
+This initial commit contains the structural scaffolding required to build and deploy the app.
 
-Abaixo encontra-se a organização dos principais ficheiros e diretórios disponibilizados no commit inicial do projeto:
+#### **1. Root Level & Dart Configuration**
+*   `smart_glyco_ai/`: Root project directory.
+*   `analysis_options.yaml`: Enforces strict Dart static analysis and linting rules to maintain code health.
+*   `devtools_options.yaml`: Configures the Flutter DevTools environment for performance profiling and debugging.
 
-| Caminho / Ficheiro | Descrição |
-| :--- | :--- |
-| `smart_glyco_ai/` | Diretório raiz e principal do projeto Flutter. |
-| `analysis_options.yaml` | Ficheiro de configuração para o linter do Dart e regras de análise estática do código. |
-| `android/` | Diretório com a estrutura e configurações nativas específicas para a plataforma Android. |
-| `android/app/build.gradle.kts` | Ficheiro de configuração do build do módulo da app, escrito em Kotlin Script (KTS). |
-| `android/app/src/main/AndroidManifest.xml` | Manifesto principal onde estão declaradas as permissões, componentes e configurações base da app Android. |
-| `android/app/src/main/kotlin/.../MainActivity.kt` | Ficheiro fonte em Kotlin que representa a Activity principal e ponto de entrada nativo da aplicação. |
-| `android/app/src/main/res/` | Diretório de recursos visuais e estáticos do projeto Android. |
+#### **2. Android Native Module (`android/`)**
+Fully configured for modern Android development utilizing Kotlin Script (KTS).
+*   **Build & Gradle:**
+    *   `build.gradle.kts` & `app/build.gradle.kts`: Modern Gradle configuration files using Kotlin DSL.
+    *   `settings.gradle.kts`: Defines project modules and repositories.
+*   **Manifests by Build Profile (`app/src/`):**
+    *   `debug/AndroidManifest.xml`: Includes permissions required only during debugging (e.g., internet for hot-reload).
+    *   `main/AndroidManifest.xml`: The core manifest detailing the app package, hardware permissions, and the `MainActivity`.
+    *   `profile/AndroidManifest.xml`: Configured specifically for performance profiling mode.
+*   **Source Code:**
+    *   `.../kotlin/com/example/smart_glyco_ai/MainActivity.kt`: The Kotlin entry point that boots the FlutterEngine.
+*   **UI Resources (`app/src/main/res/`):**
+    *   **Drawables:** `drawable-hdpi` through `drawable-xxxhdpi` and `drawable-v21` contain the splash screen (`splash.png`) and `launch_background.xml` to ensure a seamless launch experience across all pixel densities.
+    *   **Mipmaps:** `mipmap-hdpi` through `mipmap-xxxhdpi` store the application launcher icons (`ic_launcher.png`, `launcher_icon.png`).
+    *   **Values:** `values-night` and `values-night-v31` provide dynamic theming, including Dark Mode support and Android 12+ API specific styles (`styles.xml`).
 
-#### **Recursos Nativos (`android/app/src/main/res/`)**
-O diretório de recursos está organizado em subpastas otimizadas para diferentes densidades de ecrã e versões do sistema operativo:
-*   **`drawable/` e variações** (`drawable-hdpi`, `drawable-mdpi`, `drawable-xhdpi`, `drawable-xxhdpi`, `drawable-xxxhdpi`, `drawable-v21`):
-    *   Contêm os ativos do ecrã de lançamento e transição da app.
-    *   Ficheiros incluídos: `background.png`, `launch_background.xml` e o ecrã de carregamento `splash.png`.
-*   **`mipmap/` e variações** (`mipmap-hdpi`, `mipmap-mdpi`, `mipmap-xhdpi`, `mipmap-xxhdpi`, `mipmap-xxxhdpi`):
-    *   Contêm os ícones oficiais da aplicação otimizados para todas as resoluções de ecrã suportadas.
-    *   Ficheiros incluídos: `ic_launcher.png` e `launcher_icon.png`.
+#### **3. iOS Native Module (`ios/`)**
+Fully scaffolded for compilation in Xcode.
+*   **Project & Workspace:**
+    *   `Runner.xcodeproj` / `Runner.xcworkspace`: Xcode project structures and shared scheme data (`Runner.xcscheme`).
+*   **Source Code:**
+    *   `Runner/AppDelegate.swift`: Swift entry point that delegates application lifecycle events to the Flutter framework.
+*   **Visual Assets (`Runner/Assets.xcassets/`):**
+    *   `AppIcon.appiconset`: Contains precise icon resolutions required by Apple guidelines (from 20x20 to 1024x1024 across `@1x`, `@2x`, and `@3x` scales).
+    *   `LaunchImage.imageset` & `LaunchBackground.imageset`: Setup for the native iOS splash screen transition.
+*   **Flutter Integration (`Flutter/`):**
+    *   `Debug.xcconfig` & `Release.xcconfig`: Connects Xcode's build phases to the Flutter SDK.
 
-### **Notas de Desenvolvimento**
-*   **Kotlin Script (KTS):** A configuração de build da aplicação Android utiliza Kotlin Script (`build.gradle.kts`), seguindo as práticas e recomendações mais recentes do ecossistema Android.
-*   **Estrutura Padrão Flutter:** O projeto adota a arquitetura standard do Flutter para integração com a plataforma nativa, garantindo escalabilidade e facilidade na adição de dependências futuras.
+### **⚙️ Prerequisites & Setup**
+Ensure your local environment is configured with:
+*   **Flutter SDK:** `flutter doctor` must report no errors.
+*   **Android Studio / IntelliJ:** Required for Android emulation and SDK tooling.
+*   **Xcode:** Required for iOS compilation (macOS only).
+
+### **🚀 Build & Run Instructions**
+Run the following commands in the terminal at the root of the project:
+
+    # Get all project dependencies
+    flutter pub get
+
+    # Run the app on an attached device or emulator
+    flutter run
+
+    # Build a release APK for Android
+    flutter build apk --release
+
+    # Build a release IPA for iOS
+    flutter build ipa --release
+
+---
+
+## <a name="português"></a> PT Português
+
+A **SmartGlycoAI** é uma aplicação móvel multiplataforma robusta, construída com a framework **Flutter**. Este *commit* inicial estabelece a arquitetura de base, incluindo regras estritas de análise de código e integrações nativas altamente otimizadas para ambientes Android e iOS.
+
+### **📖 Índice**
+1. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+2. [Análise Profunda: Arquitetura do Repositório](#análise-profunda-arquitetura-do-repositório)
+3. [Pré-requisitos e Configuração](#pré-requisitos-e-configuração)
+4. [Instruções de Execução](#instruções-de-execução)
+
+### **🛠 Tecnologias Utilizadas**
+*   **Framework:** Flutter
+*   **Linguagem:** Dart (Frontend/Lógica), Kotlin (Nativo Android), Swift (Nativo iOS)
+*   **Sistemas de Build:** Gradle (Kotlin DSL `build.gradle.kts`), Xcode Build System
+
+### **📂 Arquitetura do Repositório**
+Este *commit* inicial contém o esqueleto estrutural necessário para compilar a aplicação.
+
+#### **1. Raiz do Projeto e Configuração Dart**
+*   `smart_glyco_ai/`: Diretório raiz do projeto.
+*   `analysis_options.yaml`: Aplica regras estritas de análise estática e *linting* do Dart para garantir a qualidade do código.
+*   `devtools_options.yaml`: Configura o ambiente do Flutter DevTools para análise de desempenho e *debugging*.
+
+#### **2. Módulo Nativo Android (`android/`)**
+Configurado para o desenvolvimento Android moderno utilizando Kotlin Script (KTS).
+*   **Build e Gradle:**
+    *   `build.gradle.kts` & `app/build.gradle.kts`: Ficheiros modernos de configuração Gradle a usar Kotlin DSL.
+    *   `settings.gradle.kts`: Define os módulos e repositórios do projeto.
+*   **Manifestos por Perfil de Build (`app/src/`):**
+    *   `debug/AndroidManifest.xml`: Inclui permissões necessárias apenas durante o *debugging* (ex: internet para o *hot-reload*).
+    *   `main/AndroidManifest.xml`: O manifesto central que detalha o pacote, permissões de hardware e a `MainActivity`.
+    *   `profile/AndroidManifest.xml`: Configurado especificamente para o modo de análise de desempenho (*profiling*).
+*   **Código-Fonte:**
+    *   `.../kotlin/com/example/smart_glyco_ai/MainActivity.kt`: O ponto de entrada em Kotlin que inicia o FlutterEngine.
+*   **Recursos de Interface (`app/src/main/res/`):**
+    *   **Drawables:** De `drawable-hdpi` a `drawable-xxxhdpi` e `drawable-v21`, contêm o ecrã de apresentação (`splash.png`) e `launch_background.xml` para garantir uma transição de ecrã fluída em qualquer densidade de píxeis.
+    *   **Mipmaps:** De `mipmap-hdpi` a `mipmap-xxxhdpi`, armazenam os ícones da aplicação (`ic_launcher.png`, `launcher_icon.png`).
+    *   **Values:** `values-night` e `values-night-v31` fornecem temas dinâmicos, incluindo suporte a Modo Escuro e estilos específicos para APIs Android 12+ (`styles.xml`).
+
+#### **3. Módulo Nativo iOS (`ios/`)**
+Estruturado para compilação no Xcode.
+*   **Projeto e Workspace:**
+    *   `Runner.xcodeproj` / `Runner.xcworkspace`: Estruturas do projeto Xcode e dados partilhados (`Runner.xcscheme`).
+*   **Código-Fonte:**
+    *   `Runner/AppDelegate.swift`: Ponto de entrada em Swift que delega os eventos de ciclo de vida da aplicação para a framework Flutter.
+*   **Ativos Visuais (`Runner/Assets.xcassets/`):**
+    *   `AppIcon.appiconset`: Contém as resoluções de ícones precisas exigidas pelas diretrizes da Apple (desde 20x20 a 1024x1024 em escalas `@1x`, `@2x` e `@3x`).
+    *   `LaunchImage.imageset` & `LaunchBackground.imageset`: Ecrãs de apresentação e imagens de fundo para a sequência de lançamento no iOS.
+*   **Configuração Flutter iOS (`Flutter/`):**
+    *   `AppFrameworkInfo.plist`, `Debug.xcconfig`, `Release.xcconfig`: Definições de compilação que ligam o motor do Flutter ao processo de *build* do Xcode.
+
+### **⚙️ Pré-requisitos e Configuração**
+Garanta que o seu ambiente local está configurado com:
+*   **Flutter SDK:** O comando `flutter doctor` não deve reportar erros.
+*   **Android Studio / IntelliJ:** Necessário para emulação Android e ferramentas do SDK.
+*   **Xcode:** Necessário para compilação iOS (exclusivo para macOS).
+
+### **🚀 Instruções de Execução**
+Execute os seguintes comandos no terminal, na raiz do projeto:
+
+    # Obter todas as dependências do projeto
+    flutter pub get
+
+    # Correr a aplicação num dispositivo físico ou emulador
+    flutter run
+
+    # Compilar um APK de release para Android
+    flutter build apk --release
+
+    # Compilar um IPA de release para iOS
+    flutter build ipa --release
